@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Online Business</title>
+    <link rel="icon" type="image/png" href="Logo IB.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ibrahim Design.</div>
+            <ul>
+                <li><a href="index.html" target="_blank">Home</a></li>
+                <li><a href="index.html">Services</a></li>
+                <li><a href="index.html">Porfolio</a></li>
+                <li><a href="index.html">About</a></li>
+            </ul>
+            <button class="explore-btn">lets Create Your WebSite</button>
+        </nav>
+    </header>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <section id="contact">
+        <div>
+        <h2 id="discuss">Lets Discuss About Your Project !</h2>
+        <form id="contactform">
+            <label for="name">Name :</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <label for="email" >Email :</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <label for="message">Message :</label>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <p class="status-message" id="statusMessage"></p>
+    </div>
+        <div class="social-media">
+            <p id="contactmedia">Contact Me On My Social Media</p>
+            <a href="https://www.instagram.com/silver_target_1.0/profilecard/?igsh=MWVqa2N6cTRtZzNwcQ== " target="_blank" ><img id="instagram"src="instagram-.png"></a>
+            <a href="https://www.snapchat.com/add/silvertarget25?share_id=W1qVVpyVtdQ&locale=en-US" target="_blank"><img id="instagram"src="snap.png"></a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 WebDesigner Ibrahim. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("x1h5tsJ_6SxNbt_Xs"); // Replace with your EmailJS user ID
+    
+        const form = document.getElementById('contactform');
+        const statusMessage = document.getElementById('statusMessage');
+    
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent default form submission
+    
+          const serviceID = 'service_fwiz1f2'; // Replace with your EmailJS service ID
+          const templateID = 'template_q69pyla'; // Replace with your EmailJS template ID
+    
+          emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+              statusMessage.textContent = 'Message sent successfully!';
+              statusMessage.style.color = 'green';
+              form.reset(); // Clear the form
+            }, (error) => {
+              statusMessage.textContent = 'Failed to send the message. Please try again.';
+              statusMessage.style.color = 'red';
+              console.error(error);
+            });
+        });
+      </script>
+    
+</body>
+</html>
